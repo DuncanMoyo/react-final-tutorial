@@ -1,36 +1,38 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import Person from "./Person/Person";
 
-class Persons extends Component {
-
+class Persons extends PureComponent {
   // static getDerivedStatefromProps(props, state) {
   //   console.log('[Persons.js] getDerivedStateFromProps');
   //   return state;
   // }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('[Persons.js] shouldComponentUpdate');
-    if (nextProps.persons !== this.props.persons) {
-      return true;
-    } else {
-      return false;
-    }
-    // return true;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log("[Persons.js] shouldComponentUpdate");
+  //   if (
+  //     nextProps.persons !== this.props.persons ||
+  //     nextProps.changed !== this.props.changed ||
+  //     nextProps.clicked !== this.props.clicked
+  //   ) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  //   // return true;
+  // }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
-    console.log('[Persons.js] getSnapshotBeforeUpdate');
-    return {message: 'Snapshot!'};
+    console.log("[Persons.js] getSnapshotBeforeUpdate");
+    return { message: "Snapshot!" };
   }
 
   componentDidUpdate(prevState, prevProps, Snapshot) {
-    console.log('[Persons.js] componentDidUpdate');
+    console.log("[Persons.js] componentDidUpdate");
     console.log(Snapshot);
   }
 
   componentWillUnmount() {
-    console.log('[Persons.js] componentWillUnmount');
-    
+    console.log("[Persons.js] componentWillUnmount");
   }
 
   render() {
@@ -47,6 +49,6 @@ class Persons extends Component {
       );
     });
   }
-} 
+}
 
 export default Persons;
