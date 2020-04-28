@@ -8,8 +8,6 @@ class Persons extends Component {
   //   return state;
   // }
 
-  
-
   shouldComponentUpdate(nextProps, nextState) {
     console.log('[Persons.js] shouldComponentUpdate');
     return true;
@@ -23,6 +21,11 @@ class Persons extends Component {
   componentDidUpdate(prevState, prevProps, Snapshot) {
     console.log('[Persons.js] componentDidUpdate');
     console.log(Snapshot);
+  }
+
+  componentWillUnmount() {
+    console.log('[Persons.js] componentWillUnmount');
+    
   }
 
   render() {
