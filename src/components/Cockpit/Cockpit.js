@@ -1,7 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 import classes from './Cockpit.css'
 
 const Cockpit = (props) => {
+
+  useEffect(() => {
+    console.log('[Cockpit.js] useEffect');
+    // Http request would be ok here
+  });
+
   const assignedClasses = [];
 
   let btnClass = "";
