@@ -3,6 +3,7 @@ import classes from "./Person.css";
 import Aux from "../../../hoc/Auxillary";
 import withClass from "../../../hoc/withClass";
 import PropTypes from "prop-types";
+import AuthContext from "../../../context/auth-context";
 
 class Person extends Component {
   constructor(props) {
@@ -19,7 +20,11 @@ class Person extends Component {
     console.log("[Person.js] rendering...");
     return (
       <Aux>
-        {this.props.isAuth ? <p>Authenticated!</p> : <p>Please Log in</p>}
+        <AuthContext.Consumer>
+          {(context) =>
+            context.authenticated ? <p>Authenticated!</p> : <p>Please Log in</p>
+          }
+        </AuthContext.Consumer>
         <p key="a1" onClick={this.props.click}>
           I'm {this.props.name} and I am {this.props.age} years old!
         </p>
