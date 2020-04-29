@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import classes from "./Person.css";
 import Aux from "../../../hoc/Auxillary";
-import withClass from '../../../hoc/withClass'
-import PropTypes from 'prop-types';
+import withClass from "../../../hoc/withClass";
+import PropTypes from "prop-types";
 
 class Person extends Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     this.inputElementRef = React.createRef();
   }
 
@@ -20,6 +19,7 @@ class Person extends Component {
     console.log("[Person.js] rendering...");
     return (
       <Aux>
+        {this.props.isAuth ? <p>Authenticated!</p> : <p>Please Log in</p>}
         <p key="a1" onClick={this.props.click}>
           I'm {this.props.name} and I am {this.props.age} years old!
         </p>
@@ -34,14 +34,14 @@ class Person extends Component {
         />
       </Aux>
     );
-  } 
+  }
 }
 
 Person.propTypes = {
   click: PropTypes.func,
   name: PropTypes.string,
   age: PropTypes.number,
-  changed: PropTypes.func
+  changed: PropTypes.func,
 };
 
 export default withClass(Person, classes.Person);
